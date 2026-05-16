@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vote Fikremarkos — Batch 2029</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{colors:{brand:{400:'#ff8a57',500:'#ff6b2c',600:'#e65214',700:'#c4410d',800:'#7c2d12',900:'#431407'}}}}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:100vh;overflow-x:hidden}
+
+@keyframes glow-pulse{
+  0%,100%{box-shadow:0 0 25px rgba(255,107,44,.3)}
+  50%{box-shadow:0 0 60px rgba(255,107,44,.6),0 0 100px rgba(255,107,44,.12)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+@keyframes pop-in{
+  0%{transform:scale(.7);opacity:0}
+  60%{transform:scale(1.05)}
+  100%{transform:scale(1);opacity:1}
+}
+@keyframes bump{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
+@keyframes confetti{
+  0%{transform:translateY(0) rotate(0);opacity:1}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0}
+}
+@keyframes shine{
+  0%{left:-100%}
+  100%{left:200%}
+}
+@keyframes count-bump{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.5);color:#ff6b2c}
+  100%{transform:scale(1)}
+}
+@keyframes batch-glow{
+  0%,100%{text-shadow:0 0 10px rgba(255,107,44,0)}
+  50%{text-shadow:0 0 20px rgba(255,107,44,.4),0 0 40px rgba(255,107,44,.1)}
+}
+
+.glow-pulse{animation:glow-pulse 2s ease-in-out infinite}
+.float{animation:float 3s ease-in-out infinite}
+.pop-in{animation:pop-in .4s ease-out both}
+.bump{animation:bump .3s ease-out}
+.count-bump{animation:count-bump .25s ease-out}
+.confetti-piece{position:fixed;pointer-events:none;z-index:9999}
+.batch-glow{animation:batch-glow 3s ease-in-out infinite}
+
+.btn-ripple{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.35);
+  transform:scale(0);
+  animation:ripple-anim .6s ease-out;
+  pointer-events:none;
+}
+@keyframes ripple-anim{
+  to{transform:scale(4);opacity:0}
+}
+
+.shine-wrapper{position:relative;overflow:hidden}
+.shine-wrapper::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+  animation:shine 3s infinite ease-in-out;
+}
+
+.msg-card{
+  transition:all .3s ease-out;
+}
+.msg-card.switching{
+  opacity:0;
+  transform:translateY(-10px) scale(0.95);
+}
+</style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="fixed inset-0 z-0">
+  <img src="https://images.squarespace-cdn.com/content/v1/5f3d4f010cfe7a50ea56b258/c1b9a092-0016-41ce-b958-8b8937a9bb75/HMA+sept%2C+30%2C+2025-322.jpg" class="w-full h-full object-cover" alt="">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/95"></div>
+</div>
+
+<!-- Main Content -->
+<div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
+
+  <!-- Portrait -->
+  <div class="float mb-6" id="portraitWrap">
+    <div class="relative">
+      <div class="absolute -inset-4 bg-brand-500/20 rounded-full blur-2xl"></div>
+      <div class="w-32 h-32 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-brand-500/60 glow-pulse">
+        <img src="https://z-cdn-media.chatglm.cn/files/38f20be8-885f-4cc4-8bbf-8140bca9ca0c.png?auth_key=1878940417-af2929158c2146ecae94f976b998b36b-0-12065a95e5f22a90b4c1d2b58bbb259f" class="w-full h-full object-cover" alt="Fikremarkos">
+      </div>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-center mb-1">
+    <span class="bg-gradient-to-r from-brand-500 to-brand-400 bg-clip-text text-transparent">Fikremarkos</span>
+  </h1>
+  <p class="text-brand-500 text-sm md:text-base font-bold batch-glow mb-1">29 is our Batch 2029 🎓</p>
+  <p class="text-neutral-400 text-xs md:text-sm mb-8 text-center max-w-xs mx-auto">The leader who deserves your vote 🗳️</p>
+
+  <!-- Message Card -->
+  <div id="messageCard" class="msg-card bg-[rgba(23,23,23,0.6)] backdrop-blur-xl border border-brand-500/20 rounded-2xl px-6 py-4 text-center mb-8 w-full max-w-md min-h-[72px] flex items-center justify-center">
+    <p class="text-neutral-400 text-sm md:text-base font-medium" id="messageText">Tap the button to show your support!</p>
+  </div>
+
+  <!-- Click Button -->
+  <div class="relative mb-8" id="btnWrap">
+    <div class="absolute inset-0 bg-brand-500/30 rounded-full blur-xl scale-150"></div>
+    <button id="clickBtn" onclick="handleClick(event)" class="shine-wrapper relative bg-gradient-to-r from-brand-600 to-brand-500 text-white font-black text-lg md:text-xl px-10 md:px-14 py-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-200 glow-pulse cursor-pointer select-none border-none outline-none">
+      👆 Click Me For Vote
+    </button>
+  </div>
+
+  <!-- Click Counter -->
+  <div class="text-center mb-6">
+    <div class="text-4xl font-black text-white leading-none" id="counter">0</div>
+    <div class="text-xs text-neutral-500 mt-1 uppercase tracking-widest">Votes</div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="w-full max-w-sm mb-3">
+    <div class="flex justify-between text-[10px] text-neutral-500 mb-1.5 uppercase tracking-wider font-semibold">
+      <span>29 is our Batch 2029</span>
+      <span id="progressLabel">0 / 29</span>
+    </div>
+    <div class="h-2.5 bg-white/5 border border-white/5 rounded-full overflow-hidden">
+      <div id="progressBar" class="h-full bg-gradient-to-r from-brand-600 to-brand-400 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Milestone label -->
+  <div class="text-[11px] text-neutral-600 mb-10" id="milestoneLabel">Reach 29 votes for Batch 2029! 🎓🎉</div>
+
+</div>
+
+<!-- Toast -->
+<div id="toasts" class="fixed top-5 right-5 z-50 flex flex-col gap-2"></div>
+
+<script>
+const messages = [
+  { emoji: "🎉", text: "You chose the right leader!" },
+  { emoji: "⭐", text: "Fikremarkos stands for excellence!" },
+  { emoji: "💪", text: "Strong leadership, better future!" },
+  { emoji: "🌟", text: "You know who deserves your vote!" },
+  { emoji: "🗳️", text: "That's correct — Fikremarkos!" },
+  { emoji: "🏆", text: "A true champion for Batch 2029!" },
+  { emoji: "❤️", text: "Fikremarkos cares about YOU!" },
+  { emoji: "🔥", text: "Your support fuels the movement!" },
+  { emoji: "✨", text: "Together we rise with Fikremarkos!" },
+  { emoji: "🦁", text: "A fearless leader for change!" },
+  { emoji: "🎯", text: "Focused on what matters most!" },
+  { emoji: "🌍", text: "Building a brighter tomorrow!" },
+  { emoji: "📣", text: "Your voice matters! Keep going!" },
+  { emoji: "👏", text: "Amazing choice — spread the word!" },
+  { emoji: "🤝", text: "Unity and progress with Fikremarkos!" },
+  { emoji: "🎓", text: "Batch 2029 believes in Fikremarkos!" },
+  { emoji: "💡", text: "Bright ideas for a better community!" },
+  { emoji: "🚀", text: "Launching forward with Fikremarkos!" },
+  { emoji: "💎", text: "A diamond among leaders!" },
+  { emoji: "🌈", text: "Hope starts with the right choice!" },
+];
+
+let count = 0;
+let lastMsgIndex = -1;
+const GOAL = 29;
+let goalReached = false;
+
+function handleClick(e) {
+  count++;
+  
+  // Update counter with animation
+  const counterEl = document.getElementById('counter');
+  counterEl.textContent = count;
+  counterEl.classList.remove('count-bump');
+  void counterEl.offsetWidth;
+  counterEl.classList.add('count-bump');
+
+  // Portrait bump
+  const portrait = document.getElementById('portraitWrap');
+  portrait.classList.remove('bump');
+  void portrait.offsetWidth;
+  portrait.classList.add('bump');
+
+  // Button ripple
+  const btn = document.getElementById('clickBtn');
+  const rect = btn.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  ripple.className = 'btn-ripple';
+  const size = Math.max(rect.width, rect.height);
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+  ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+  btn.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+
+  // Update message with smooth transition
+  const msgCard = document.getElementById('messageCard');
+  const msgText = document.getElementById('messageText');
+  
+  msgCard.classList.add('switching');
+  
+  setTimeout(() => {
+    let idx;
+    do { idx = Math.floor(Math.random() * messages.length); } while (idx === lastMsgIndex);
+    lastMsgIndex = idx;
+    const msg = messages[idx];
+    msgText.innerHTML = `<span class="text-xl mr-2">${msg.emoji}</span><span class="text-white font-semibold">${msg.text}</span>`;
+    msgCard.classList.remove('switching');
+  }, 150);
+
+  // Update progress bar
+  const progress = Math.min(count / GOAL * 100, 100);
+  document.getElementById('progressBar').style.width = progress + '%';
+  document.getElementById('progressLabel').textContent = `${Math.min(count, GOAL)} / 29`;
+
+  // Milestone checks
+  if (count === 1) {
+    toast('🗳️ Your first vote for Fikremarkos!');
+  }
+  
+  if (count >= GOAL && !goalReached) {
+    goalReached = true;
+    confetti();
+    confetti();
+    toast('🎓 Batch 2029 Goal Reached! Go Fikremarkos!');
+    document.getElementById('milestoneLabel').textContent = '🎉 Batch 2029 complete! Keep the momentum going!';
+    document.getElementById('milestoneLabel').classList.add('text-brand-500');
+    document.getElementById('progressLabel').textContent = '🎓 29/29 Batch 2029!';
+  }
+  
+  // Mini confetti every 29 votes after goal
+  if (goalReached && count % 29 === 0) {
+    confetti();
+    toast(`🔥 ${count} votes! Batch 2029 Unstoppable!`);
+  }
+}
+
+function confetti() {
+  const cols = ['#ff6b2c','#ff8a57','#ffd700','#4ade80','#ffffff','#f87171'];
+  for (let i = 0; i < 60; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    const sz = 5 + Math.random() * 8;
+    p.style.cssText = `left:${Math.random()*100}vw;top:-10px;width:${sz}px;height:${sz}px;background:${cols[Math.random()*cols.length|0]};border-radius:${Math.random()>.5?'50%':'2px'};`;
+    const dur = 2+Math.random()*2, del = Math.random()*.5, xd = (Math.random()-.5)*200;
+    p.animate([
+      {transform:'translateY(0) translateX(0) rotate(0)',opacity:1},
+      {transform:`translateY(100vh) translateX(${xd}px) rotate(${600+Math.random()*600}deg)`,opacity:0}
+    ],{duration:dur*1000,delay:del*1000,fill:'forwards'});
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),(dur+del)*1000);
+  }
+}
+
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'bg-[rgba(20,20,20,0.9)] border border-brand-500/20 text-white text-xs font-semibold px-4 py-2.5 rounded-xl backdrop-blur-xl shadow-2xl pop-in';
+  t.textContent = msg;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(() => {
+    t.style.transition = 'all .25s';
+    t.style.opacity = '0';
+    t.style.transform = 'translateX(30px)';
+    setTimeout(() => t.remove(), 250);
+  }, 3000);
+}
+</script>
+</body>
+</html>
