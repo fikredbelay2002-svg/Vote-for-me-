@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vote Fikremarkos — Batch 2029</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Vote Fikremarkos — Batch 2029 ✨</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <script>
-tailwind.config={theme:{extend:{colors:{brand:{400:'#ff8a57',500:'#ff6b2c',600:'#e65214',700:'#c4410d',800:'#7c2d12',900:'#431407'}}}}}
+tailwind.config={
+  theme:{
+    extend:{
+      colors:{
+        brand:{
+          400:'#ff8a57',
+          500:'#ff6b2c',
+          600:'#e65214',
+          700:'#c4410d',
+          800:'#7c2d12',
+          900:'#431407'
+        }
+      }
+    }
+  }
+}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -91,7 +106,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
   left:-100%;
   width:50%;
   height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
   animation:shine 3s infinite ease-in-out;
 }
 
@@ -106,10 +121,10 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
 </head>
 <body>
 
-<!-- Background -->
+<!-- Background Layer -->
 <div class="fixed inset-0 z-0">
-  <img src="https://images.squarespace-cdn.com/content/v1/5f3d4f010cfe7a50ea56b258/c1b9a092-0016-41ce-b958-8b8937a9bb75/HMA+sept%2C+30%2C+2025-322.jpg" class="w-full h-full object-cover" alt="">
-  <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/95"></div>
+  <img src="https://images.squarespace-cdn.com/content/v1/5f3d4f010cfe7a50ea56b258/c1b9a092-0016-41ce-b958-8b8937a9bb75/HMA+sept%2C+30%2C+2025-322.jpg" class="w-full h-full object-cover" alt="campus background">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/95"></div>
 </div>
 
 <!-- Main Content -->
@@ -129,33 +144,33 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
   <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-center mb-1">
     <span class="bg-gradient-to-r from-brand-500 to-brand-400 bg-clip-text text-transparent">Fikremarkos</span>
   </h1>
-  <p class="text-brand-500 text-sm md:text-base font-bold batch-glow mb-1">29 is our Batch 2029 🎓</p>
+  <p class="text-brand-500 text-sm md:text-base font-bold batch-glow mb-1">Batch 2029 | 5 is our goal 🎓</p>
   <p class="text-neutral-400 text-xs md:text-sm mb-8 text-center max-w-xs mx-auto">The leader who deserves your vote 🗳️</p>
 
-  <!-- Message Card -->
+  <!-- Dynamic Message Card -->
   <div id="messageCard" class="msg-card bg-[rgba(23,23,23,0.6)] backdrop-blur-xl border border-brand-500/20 rounded-2xl px-6 py-4 text-center mb-8 w-full max-w-md min-h-[72px] flex items-center justify-center">
-    <p class="text-neutral-400 text-sm md:text-base font-medium" id="messageText">Tap the button to show your support!</p>
+    <p class="text-neutral-400 text-sm md:text-base font-medium" id="messageText">Tap to support Fikremarkos! ✨</p>
   </div>
 
-  <!-- Click Button -->
+  <!-- Main Vote Button -->
   <div class="relative mb-8" id="btnWrap">
     <div id="btnGlow" class="absolute inset-0 bg-brand-500/30 rounded-full blur-xl scale-150 transition-opacity duration-500"></div>
     <button id="clickBtn" onclick="handleClick(event)" class="shine-wrapper relative bg-gradient-to-r from-brand-600 to-brand-500 text-white font-black text-lg md:text-xl px-10 md:px-14 py-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-200 glow-pulse cursor-pointer select-none border-none outline-none">
-      👆 Click Me For Vote
+      👆 Vote Now — Click Me
     </button>
   </div>
 
-  <!-- Click Counter -->
+  <!-- Vote Counter -->
   <div class="text-center mb-6">
-    <div class="text-4xl font-black text-white leading-none" id="counter">0</div>
-    <div class="text-xs text-neutral-500 mt-1 uppercase tracking-widest">Votes</div>
+    <div class="text-5xl font-black text-white leading-none tracking-tighter" id="counter">0</div>
+    <div class="text-xs text-neutral-500 mt-1 uppercase tracking-widest font-semibold">Votes for Fikremarkos</div>
   </div>
 
-  <!-- Progress Bar -->
+  <!-- Progress Bar Section - GOAL CHANGED TO 5 -->
   <div class="w-full max-w-sm mb-3">
     <div class="flex justify-between text-[10px] text-neutral-500 mb-1.5 uppercase tracking-wider font-semibold">
-      <span>29 is our Batch 2029</span>
-      <span id="progressLabel">0 / 29</span>
+      <span>🎯 Batch 2029 Goal: 5 Votes</span>
+      <span id="progressLabel">0 / 5</span>
     </div>
     <div class="h-2.5 bg-white/5 border border-white/5 rounded-full overflow-hidden">
       <div id="progressBar" class="h-full bg-gradient-to-r from-brand-600 to-brand-400 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
@@ -163,16 +178,14 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
   </div>
 
   <!-- Milestone label -->
-  <div class="text-[11px] text-neutral-600" id="milestoneLabel">Reach 29 votes for Batch 2029! 🎓🎉</div>
-
+  <div class="text-[11px] text-neutral-500 font-medium" id="milestoneLabel">⭐ Reach 5 votes to unlock victory! ⭐</div>
 </div>
 
-<!-- ===== FINAL CELEBRATION SCREEN ===== -->
+<!-- ===== FINAL CELEBRATION SCREEN ===== (Goal achieved) -->
 <div id="finalScreen" class="fixed inset-0 z-50 hidden items-center justify-center">
-  <div class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+  <div class="absolute inset-0 bg-black/88 backdrop-blur-md"></div>
   <div class="relative z-10 text-center px-6 max-w-lg mx-auto">
     
-    <!-- Checkmark circle -->
     <div class="fade-in-up mb-6" style="animation-delay:.2s">
       <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center glow-pulse pulse-big">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -182,41 +195,36 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
       </div>
     </div>
 
-    <!-- 29 completed -->
     <div class="fade-in-up mb-2" style="animation-delay:.4s">
-      <div class="text-5xl md:text-6xl font-black tracking-tighter bg-gradient-to-r from-brand-500 to-brand-400 bg-clip-text text-transparent">29/29</div>
+      <div class="text-5xl md:text-6xl font-black tracking-tighter bg-gradient-to-r from-brand-500 to-brand-400 bg-clip-text text-transparent">5/5 GOAL!</div>
     </div>
     
     <div class="fade-in-up mb-6" style="animation-delay:.6s">
-      <p class="text-brand-500 font-bold text-base batch-glow">Batch 2029 Complete! 🎓</p>
+      <p class="text-brand-500 font-bold text-base batch-glow">Batch 2029 Complete! 🎓✨</p>
     </div>
 
-    <!-- Main message -->
     <div class="fade-in-up mb-4" style="animation-delay:.8s">
       <h2 class="text-2xl md:text-4xl font-black tracking-tighter text-white mb-3">So Vote & Let's Grow! 🌱</h2>
       <p class="text-neutral-300 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
-        29 voices strong. 29 reasons to believe. 
+        ✅ 5 powerful voices. 5 strong reasons. <br>
         <span class="text-brand-500 font-bold">Fikremarkos</span> is the leader who will take us forward.
       </p>
     </div>
 
-    <!-- Portrait small -->
     <div class="fade-in-up mb-6" style="animation-delay:1s">
       <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border-2 border-brand-500/50 glow-pulse">
         <img src="https://z-cdn-media.chatglm.cn/files/38f20be8-885f-4cc4-8bbf-8140bca9ca0c.png?auth_key=1878940417-af2929158c2146ecae94f976b998b36b-0-12065a95e5f22a90b4c1d2b58bbb259f" class="w-full h-full object-cover" alt="Fikremarkos">
       </div>
     </div>
 
-    <!-- Vote button -->
     <div class="fade-in-up mb-8" style="animation-delay:1.2s">
       <button onclick="finalVote()" id="finalVoteBtn" class="shine-wrapper relative bg-gradient-to-r from-brand-600 to-brand-500 text-white font-black text-lg px-12 py-4 rounded-full hover:scale-105 active:scale-95 transition-all duration-200 glow-pulse cursor-pointer border-none outline-none">
         🗳️ VOTE FOR FIKREMARKOS
       </button>
     </div>
 
-    <!-- Email -->
     <div class="fade-in-up" style="animation-delay:1.4s">
-      <p class="text-neutral-500 text-xs mb-2">Reach out to Batch 2029</p>
+      <p class="text-neutral-500 text-xs mb-2">📬 Reach out to Batch 2029</p>
       <a href="mailto:fikremarkos2029@hmacademy.org" class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-5 py-2.5 text-brand-500 text-sm font-semibold hover:border-brand-500/30 hover:bg-brand-500/5 transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
         fikremarkos2029@hmacademy.org
@@ -225,16 +233,16 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
   </div>
 </div>
 
-<!-- Thank You Screen (after voting) -->
+<!-- ===== THANK YOU SCREEN (After final vote) ===== -->
 <div id="thankYouScreen" class="fixed inset-0 z-50 hidden items-center justify-center">
-  <div class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
   <div class="relative z-10 text-center px-6 max-w-md mx-auto">
     <div class="fade-in-up mb-6">
-      <div class="text-7xl mb-4">❤️</div>
+      <div class="text-7xl mb-4 animate-pulse">❤️</div>
       <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-white mb-3">Thank You!</h2>
       <p class="text-neutral-300 text-sm md:text-base leading-relaxed">
-        You voted for <span class="text-brand-500 font-bold">Fikremarkos</span>!<br>
-        Together, Batch 2029 will grow! 🌱🎓
+        You officially voted for <span class="text-brand-500 font-bold">Fikremarkos</span>!<br>
+        Together, Batch 2029 will rise & grow! 🌱🎓
       </p>
     </div>
     <div class="fade-in-up" style="animation-delay:.3s">
@@ -243,7 +251,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
       </div>
       <p class="text-brand-500 font-bold batch-glow text-lg mb-4">Fikremarkos — Batch 2029</p>
       <div class="mt-4">
-        <p class="text-neutral-500 text-xs mb-2">Get in touch</p>
+        <p class="text-neutral-500 text-xs mb-2">📧 Get involved</p>
         <a href="mailto:fikremarkos2029@hmacademy.org" class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-5 py-2.5 text-brand-500 text-sm font-semibold hover:border-brand-500/30 hover:bg-brand-500/5 transition-all">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
           fikremarkos2029@hmacademy.org
@@ -253,24 +261,28 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:
   </div>
 </div>
 
-<!-- Toast -->
+<!-- Toast Container -->
 <div id="toasts" class="fixed top-5 right-5 z-[60] flex flex-col gap-2"></div>
 
 <script>
+// ===============================================
+// GOAL CHANGED FROM 29 TO 5 (BATCH 2029 BUT 5 VOTES)
+// ===============================================
+
 const messages = [
-  { emoji: "🎉", text: "You chose the right leader!" },
-  { emoji: "⭐", text: "Fikremarkos stands for excellence!" },
+  { emoji: "🎉", text: "You chose the right leader — Fikremarkos!" },
+  { emoji: "⭐", text: "Excellence shines with this vote!" },
   { emoji: "💪", text: "Strong leadership, better future!" },
   { emoji: "🌟", text: "You know who deserves your vote!" },
-  { emoji: "🗳️", text: "That's correct — Fikremarkos!" },
+  { emoji: "🗳️", text: "Yes! Fikremarkos for the win!" },
   { emoji: "🏆", text: "A true champion for Batch 2029!" },
   { emoji: "❤️", text: "Fikremarkos cares about YOU!" },
   { emoji: "🔥", text: "Your support fuels the movement!" },
   { emoji: "✨", text: "Together we rise with Fikremarkos!" },
-  { emoji: "🦁", text: "A fearless leader for change!" },
+  { emoji: "🦁", text: "Fearless leader for change!" },
   { emoji: "🎯", text: "Focused on what matters most!" },
   { emoji: "🌍", text: "Building a brighter tomorrow!" },
-  { emoji: "📣", text: "Your voice matters! Keep going!" },
+  { emoji: "📣", text: "Your voice matters! Keep voting!" },
   { emoji: "👏", text: "Amazing choice — spread the word!" },
   { emoji: "🤝", text: "Unity and progress with Fikremarkos!" },
   { emoji: "🎓", text: "Batch 2029 believes in Fikremarkos!" },
@@ -282,121 +294,26 @@ const messages = [
 
 let count = 0;
 let lastMsgIndex = -1;
-const GOAL = 29;
+const GOAL = 5;   // 🔥 GOAL CHANGED TO 5 🔥
 let goalReached = false;
 
-function handleClick(e) {
-  if (goalReached) return;
+// DOM Elements
+const counterEl = document.getElementById('counter');
+const progressBar = document.getElementById('progressBar');
+const progressLabel = document.getElementById('progressLabel');
+const milestoneLabel = document.getElementById('milestoneLabel');
+const clickBtn = document.getElementById('clickBtn');
+const btnGlow = document.getElementById('btnGlow');
+const portraitWrap = document.getElementById('portraitWrap');
+const messageCard = document.getElementById('messageCard');
+const messageText = document.getElementById('messageText');
+const finalScreenDiv = document.getElementById('finalScreen');
+const thankYouScreenDiv = document.getElementById('thankYouScreen');
 
-  count++;
-
-  // Update counter with animation
-  const counterEl = document.getElementById('counter');
-  counterEl.textContent = count;
-  counterEl.classList.remove('count-bump');
-  void counterEl.offsetWidth;
-  counterEl.classList.add('count-bump');
-
-  // Portrait bump
-  const portrait = document.getElementById('portraitWrap');
-  portrait.classList.remove('bump');
-  void portrait.offsetWidth;
-  portrait.classList.add('bump');
-
-  // Button ripple
-  const btn = document.getElementById('clickBtn');
-  const rect = btn.getBoundingClientRect();
-  const ripple = document.createElement('span');
-  ripple.className = 'btn-ripple';
-  const size = Math.max(rect.width, rect.height);
-  ripple.style.width = ripple.style.height = size + 'px';
-  ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-  ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-  btn.appendChild(ripple);
-  setTimeout(() => ripple.remove(), 600);
-
-  // Update message with smooth transition
-  const msgCard = document.getElementById('messageCard');
-  const msgText = document.getElementById('messageText');
-
-  msgCard.classList.add('switching');
-
-  setTimeout(() => {
-    let idx;
-    do { idx = Math.floor(Math.random() * messages.length); } while (idx === lastMsgIndex);
-    lastMsgIndex = idx;
-    const msg = messages[idx];
-    msgText.innerHTML = `<span class="text-xl mr-2">${msg.emoji}</span><span class="text-white font-semibold">${msg.text}</span>`;
-    msgCard.classList.remove('switching');
-  }, 150);
-
-  // Update progress bar
-  const progress = Math.min(count / GOAL * 100, 100);
-  document.getElementById('progressBar').style.width = progress + '%';
-  document.getElementById('progressLabel').textContent = `${Math.min(count, GOAL)} / 29`;
-
-  // Milestone checks
-  if (count === 1) {
-    toast('🗳️ Your first vote for Fikremarkos!');
-  }
-
-  // GOAL REACHED — stop everything, show final screen
-  if (count >= GOAL && !goalReached) {
-    goalReached = true;
-
-    // Disable button
-    btn.classList.remove('glow-pulse', 'shine-wrapper');
-    btn.classList.add('opacity-40', 'cursor-not-allowed');
-    btn.textContent = '✅ 29/29 Complete!';
-    document.getElementById('btnGlow').style.opacity = '0';
-
-    // Update progress
-    document.getElementById('progressLabel').textContent = '🎓 29/29 Batch 2029!';
-    document.getElementById('milestoneLabel').textContent = '🎉 Batch 2029 complete!';
-    document.getElementById('milestoneLabel').classList.add('text-brand-500');
-
-    // Big confetti
-    confetti();
-    setTimeout(confetti, 400);
-    setTimeout(confetti, 800);
-
-    // Show final screen after short delay
-    setTimeout(() => {
-      document.getElementById('finalScreen').style.display = 'flex';
-    }, 1200);
-
-    toast('🎓 Batch 2029 Goal Reached!');
-  }
-}
-
-function finalVote() {
-  document.getElementById('finalScreen').style.display = 'none';
-  document.getElementById('thankYouScreen').style.display = 'flex';
-  confetti();
-  setTimeout(confetti, 300);
-  toast('❤️ Thank you for voting for Fikremarkos!');
-}
-
-function confetti() {
-  const cols = ['#ff6b2c', '#ff8a57', '#ffd700', '#4ade80', '#ffffff', '#f87171'];
-  for (let i = 0; i < 60; i++) {
-    const p = document.createElement('div');
-    p.className = 'confetti-piece';
-    const sz = 5 + Math.random() * 8;
-    p.style.cssText = `left:${Math.random() * 100}vw;top:-10px;width:${sz}px;height:${sz}px;background:${cols[Math.random() * cols.length | 0]};border-radius:${Math.random() > .5 ? '50%' : '2px'};`;
-    const dur = 2 + Math.random() * 2, del = Math.random() * .5, xd = (Math.random() - .5) * 200;
-    p.animate([
-      { transform: 'translateY(0) translateX(0) rotate(0)', opacity: 1 },
-      { transform: `translateY(100vh) translateX(${xd}px) rotate(${600 + Math.random() * 600}deg)`, opacity: 0 }
-    ], { duration: dur * 1000, delay: del * 1000, fill: 'forwards' });
-    document.body.appendChild(p);
-    setTimeout(() => p.remove(), (dur + del) * 1000);
-  }
-}
-
-function toast(msg) {
+// Helper: Show Toast
+function toast(msg, isError = false) {
   const t = document.createElement('div');
-  t.className = 'bg-[rgba(20,20,20,0.9)] border border-brand-500/20 text-white text-xs font-semibold px-4 py-2.5 rounded-xl backdrop-blur-xl shadow-2xl pop-in';
+  t.className = 'bg-[rgba(20,20,20,0.92)] border border-brand-500/30 text-white text-xs font-semibold px-4 py-2.5 rounded-xl backdrop-blur-xl shadow-2xl pop-in';
   t.textContent = msg;
   document.getElementById('toasts').appendChild(t);
   setTimeout(() => {
@@ -404,8 +321,145 @@ function toast(msg) {
     t.style.opacity = '0';
     t.style.transform = 'translateX(30px)';
     setTimeout(() => t.remove(), 250);
-  }, 3000);
+  }, 2800);
 }
+
+// Confetti burst (improved)
+function blastConfetti() {
+  const colors = ['#ff6b2c', '#ff8a57', '#ffd700', '#4ade80', '#ffffff', '#f87171', '#ffb347'];
+  for (let i = 0; i < 90; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    const sz = 6 + Math.random() * 10;
+    p.style.cssText = `left:${Math.random() * 100}vw;top:-15px;width:${sz}px;height:${sz}px;background:${colors[Math.floor(Math.random() * colors.length)]};border-radius:${Math.random() > 0.5 ? '50%' : '2px'};box-shadow:0 0 5px rgba(0,0,0,0.2);`;
+    const duration = 2 + Math.random() * 2.5;
+    const delay = Math.random() * 0.6;
+    const xDrift = (Math.random() - 0.5) * 220;
+    p.animate([
+      { transform: `translateY(0px) translateX(0px) rotate(0deg)`, opacity: 1 },
+      { transform: `translateY(100vh) translateX(${xDrift}px) rotate(${400 + Math.random() * 700}deg)`, opacity: 0 }
+    ], { duration: duration * 1000, delay: delay * 1000, fill: 'forwards' });
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), (duration + delay) * 1000);
+  }
+}
+
+// Ripple effect
+function addRipple(event, element) {
+  const rect = element.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  ripple.className = 'btn-ripple';
+  const size = Math.max(rect.width, rect.height);
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+  ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+  element.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+}
+
+// Update UI after each click
+function updateUIAfterClick() {
+  // update counter number + animation
+  counterEl.textContent = count;
+  counterEl.classList.remove('count-bump');
+  void counterEl.offsetWidth;
+  counterEl.classList.add('count-bump');
+
+  // portrait bump
+  portraitWrap.classList.remove('bump');
+  void portraitWrap.offsetWidth;
+  portraitWrap.classList.add('bump');
+
+  // update progress bar
+  const percent = Math.min((count / GOAL) * 100, 100);
+  progressBar.style.width = percent + '%';
+  progressLabel.textContent = `${Math.min(count, GOAL)} / ${GOAL}`;
+  
+  // milestone special message
+  if (count === 1) {
+    toast('🎉 First vote for Fikremarkos! One step closer!');
+  }
+  if (count === 3) {
+    toast('⚡ 3 votes already! Halfway to victory!');
+  }
+  if (count === 4 && count < GOAL) {
+    toast('✨ One more vote to reach Batch 2029 goal!');
+  }
+}
+
+// Handle Main Vote Clicks
+function handleClick(event) {
+  if (goalReached) return;
+  
+  // increment count
+  count++;
+  
+  // add ripple effect
+  if (clickBtn) addRipple(event, clickBtn);
+  
+  // update message with smooth transition
+  messageCard.classList.add('switching');
+  setTimeout(() => {
+    let randomIdx;
+    do { randomIdx = Math.floor(Math.random() * messages.length); } while (randomIdx === lastMsgIndex);
+    lastMsgIndex = randomIdx;
+    const msg = messages[randomIdx];
+    messageText.innerHTML = `<span class="text-xl mr-2">${msg.emoji}</span><span class="text-white font-semibold">${msg.text}</span>`;
+    messageCard.classList.remove('switching');
+  }, 140);
+  
+  // update UI
+  updateUIAfterClick();
+  
+  // ---- GOAL REACHED (5 VOTES) ----
+  if (count >= GOAL && !goalReached) {
+    goalReached = true;
+    
+    // Disable button visual
+    clickBtn.classList.remove('glow-pulse', 'shine-wrapper');
+    clickBtn.classList.add('opacity-50', 'cursor-not-allowed', 'grayscale-[0.2]');
+    clickBtn.textContent = '✅ GOAL ACHIEVED! 5/5';
+    if (btnGlow) btnGlow.style.opacity = '0';
+    
+    // update progress label & milestone
+    progressLabel.innerHTML = '🎉 5/5 — Batch 2029 VICTORY! 🎉';
+    milestoneLabel.textContent = '🎓 BATCH 2029 GOAL UNLOCKED! 🎓';
+    milestoneLabel.classList.add('text-brand-400', 'font-bold');
+    
+    // burst confetti thrice
+    blastConfetti();
+    setTimeout(() => blastConfetti(), 300);
+    setTimeout(() => blastConfetti(), 650);
+    
+    // show final celebration screen after delay
+    setTimeout(() => {
+      finalScreenDiv.style.display = 'flex';
+    }, 1000);
+    
+    toast('🏆 5 VOTES COMPLETE! BATCH 2029 GOAL REACHED!');
+  }
+}
+
+// Final Vote Action (from final celebration screen)
+function finalVote() {
+  // close final screen and show personalized thank you
+  finalScreenDiv.style.display = 'none';
+  thankYouScreenDiv.style.display = 'flex';
+  // extra confetti burst
+  blastConfetti();
+  setTimeout(() => blastConfetti(), 250);
+  toast('❤️ Thank you for voting for Fikremarkos! You are part of Batch 2029 history.');
+}
+
+// Optional: handle any case where we want to reset? Not needed, but smooth.
+// Prevent double goal reached bug: also ensure button not clickable after goal.
+window.onload = () => {
+  // pre-set progress label to show goal 5
+  progressLabel.innerText = `0 / ${GOAL}`;
+  milestoneLabel.innerText = `⭐ Reach ${GOAL} votes to unlock victory! ⭐`;
+};
+
+// For safety, if someone tries to call finalVote before goal (by inspecting), no issue
 </script>
 </body>
 </html>
